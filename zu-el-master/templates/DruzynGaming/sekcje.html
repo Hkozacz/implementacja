@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drużynka G</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    {% load static %}
+    
+   
+</head>
+<body>
+<div id="nav">
+    <img src="{% static 'img/logo.png' %}">
+    <a href="{% url 'aktualnosci' %}"><span class="nav">Aktualności</span></a>
+    <a href="{% url 'sekcje' %}"><span class="nav">Sekcje</span></a>
+    <a href="{% url 'harmonogram' %}"><span class="nav">Harmonogram</span></a>
+</div>
+<div id="container">
+<div id="sekcje">
+    <div class="nav">
+        <a href="aktualności.html"><span class="nav">Counter-Strike</span></a>
+        <a href="sekcje.html"><span class="nav">League Of Legends</span></a>
+        <hr>
+    fdfd
+        {% for post in csgo %}
+            c
+  <div class="row">
+   <div class="col-md-1 col-xs-1 col-sm-1"></div>
+   <div class="col-md-7 col-xs-7 col-sm-7">
+    <ul class="list-group">
+
+       <li class="list-group-item ">
+     <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>  <span class="badge"></span>
+    </li>
+     </ul>
+    <br>
+   </div>
+   <div class="col-md-1 col-xs-1 col-sm-1"></div>
+  </div>
+ {% endfor %}
+
+    </div>
+
+</div>
+</div>
+
+
+</body>
+</html>
