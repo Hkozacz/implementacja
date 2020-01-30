@@ -16,4 +16,4 @@ class Player(models.Model):
     rola=models.CharField(max_length=30,help_text='Rola')
 
     def __str__(self):
-        return (self.imie, self.nick, self.nazwisko)
+        return (self.imie+" "+self.nick+" "+self.nazwisko)

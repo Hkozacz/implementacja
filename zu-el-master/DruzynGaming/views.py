@@ -15,6 +15,10 @@ class IndexView(ListView):
  context_object_name = 'post_list'
  def get_queryset(self):
   return Post.objects.all()
+
+
+
+
 #Detail view (view post detail)
 class PostDetailView(DetailView):
  model=Post
@@ -58,8 +62,24 @@ def harmonogram(request,template_name='DruzynGaming/harmonogram.html'):
         return redirect('harmonogram')
     return render(request,template_name)
 
-def sekcje(request,template_name='DruzynGaming/sekcje.html'):
-    if request.method=='POST':
+
+def sekcje(request, template_name='DruzynGaming/sekcje.html',context_object_name = 'post_list'):
+    if request.method == 'POST':
         post.aktualnosci()
         return redirect('sekcje')
-        return Post.objects.all()
+    return render(request, template_name)
+
+class csgo(ListView):
+ template_name = 'DruzynGaming/sekcjecsgo.html'
+ context_object_name = 'csgo'
+ def get_queryset(self):
+    return Player.objects.all().filter(sekcja="csgo")
+
+
+class Lol(ListView):
+ template_name = 'DruzynGaming/sekcjelol.html'
+ context_object_name = 'lol'
+ def get_queryset(self):
+    return Player.objects.all().filter(sekcja="lol")
+
+
