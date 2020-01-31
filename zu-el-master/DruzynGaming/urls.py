@@ -10,5 +10,5 @@ urlpatterns = [
     path('sekcje', views.sekcje, name='sekcje'),
     path('csgo', views.csgo.as_view(), name='csgo'),
     path('lol', views.Lol.as_view(), name='lol'),
-    path('harmonogram', views.harmonogram, name='harmonogram'),
+    path('harmonogram', views.Harmonogram.as_view(), name='harmonogram'),
 ]

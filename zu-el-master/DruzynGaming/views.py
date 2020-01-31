@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PostForm
-from .models import Post, Player
+from .models import Post, Player,Event,Kalendar
 from django.views.generic import ListView, DetailView,View
 from django.http import HttpResponseRedirect,HttpResponse
 
@@ -55,12 +55,12 @@ def aktualnosci(request,template_name='DruzynGaming/aktualnosci.html'):
         return redirect('aktualnosci')
     return render(request,template_name,{'object':post})
 
-def harmonogram(request,template_name='DruzynGaming/harmonogram.html'):
+#def harmonogram(request,template_name='DruzynGaming/harmonogram.html'):
     
-    if request.method=='POST':
-        post.aktualnosci()
-        return redirect('harmonogram')
-    return render(request,template_name)
+   ## if request.method=='POST':
+      #  post.aktualnosci()
+     #   return redirect('harmonogram')
+  #  return render(request,template_name)
 
 
 def sekcje(request, template_name='DruzynGaming/sekcje.html',context_object_name = 'post_list'):
@@ -81,5 +81,12 @@ class Lol(ListView):
  context_object_name = 'lol'
  def get_queryset(self):
     return Player.objects.all().filter(sekcja="lol")
+
+class Harmonogram(ListView):
+    template_name = 'DruzynGaming/harmonogram.html'
+    context_object_name = 'kalend'
+    def get_queryset(self):
+        return Kalendar.objects.all()
+
 
 

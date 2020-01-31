@@ -2,6 +2,11 @@ body{
     background-color: cornflowerblue;
 }
 
+table, tr, td {
+  border: 1px solid black;
+}
+
+
 #nav{
     align-content: center;
     background-color: black;

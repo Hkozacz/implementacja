@@ -17,3 +17,18 @@ class Player(models.Model):
 
     def __str__(self):
         return (self.imie+" "+self.nick+" "+self.nazwisko)
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=30,help_text='Tytuł')
+    details = models.TextField(help_text='Szczegóły')
+    def __str__(self):
+        return (self.title)
+
+class Kalendar(models.Model):
+    date = models.DateField()
+    event = models.ForeignKey(Event,on_delete=models.CASCADE)
+    def __str__(self):
+        self.nazwa = str(self.date)
+        return (self.nazwa)
+

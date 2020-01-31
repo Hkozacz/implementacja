@@ -17,7 +17,21 @@
     </div>
 </div>
 <div id="container">
-Blah
+
+     <table style ="border: 1px solid black;">
+<tr style ="border: 1px solid black;">
+    <td style ="border: 1px solid black;"><h2> Data </h2></td>	<td style ="border: 1px solid black;"><h2> Nazwa </h2></td> <td style ="border: 1px solid black;"><h2> Szczegóły </h2></td>
+</tr>
+ {% for objekt in kalend %}
+<tr>
+	<td style ="border: 1px solid black;"> {{ objekt.date }} </td>	<td style ="border: 1px solid black;"> {{ objekt.event }} </td> <td style ="border: 1px solid black;"> {{ objekt.event.details }} </td>
+</tr>
+
+
+ {% endfor %}
+
+
+</table>
 </div>
 
 
